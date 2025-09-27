@@ -55,7 +55,7 @@
             lastClick = createVector(0, 0);
             
             // Initialize baneling
-            bane = new Baneling(560, 560, 60, 3.75);
+            bane = new Baneling(415, 380, 60, 3.75);
             
             // Initialize scenes
 
@@ -69,7 +69,7 @@
             */
 
             // 4 -> 1
-            scene4 = new Scene(550, 550, []);
+            scene4 = new Scene(415, 380, []);
             scene4.obstacles = [
                 // boundaries
                 new rectObs(0,0,5, 600),
@@ -87,6 +87,13 @@
 
                 // I
                 new rectLand(300, 200, 30, 200),
+
+                //!
+                new rectObs(400, 200, 30, 130),
+                new sizeShift(415, 380, 60, 60, 3.75),
+
+                //interactables
+                new rectLand(100, 450, 400, 100)
 
                 // new sizeShift(400, 300, 15, 15, 2)
             ];
@@ -895,6 +902,5 @@
     </script>
 </body>
 </html>
-
 
 
