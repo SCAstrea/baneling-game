@@ -34,17 +34,13 @@
 </head>
 <body>
     <h1>Baneling Escape</h1>
-    <div id="instructions">
-        <div class="terrain-info">
-        </div>
-    </div>
     <div id="gameInfo">
         Current Scene: <span id="sceneDisplay">1</span> | Terrain: <span id="terrainDisplay">Ice</span>
     </div>
 
     <script>
         // chooses starting scene
-        let sceneCounter = 9;
+        let sceneCounter = 10;
 
         let portalBool = false;
         let collide = false;
@@ -311,13 +307,15 @@
                 new rectObs(595, 0, 5, 250),
                 new rectObs(595, 350, 5, 250),
                 new rectPortal(-10, 270, 10, 60, 1, 570, 300),
+                new rectPortal(610, 270, 10, 60, 10, 30, 300),
 
                 //obstacles
                 new rectObs(150, 0, 100, 600),
 
                 //level interactables
+                // new rectLand(510, 270, 60, 60),
                 new rectLand(50, 270, 60, 60),
-                new Portal (425, 300, 200, 10, 300, 300)
+                new Portal (380, 300, 200, 11, 300, 300)
             ]
 
             scene10 = new Scene(560, 560, []);
@@ -328,7 +326,7 @@
                 new rectObs(0, 0, 600, 5),
                 new rectObs(0, 595, 600, 5),
                 new rectObs(595, 0, 5, 600),
-                new rectPortal(-10, 250, 5, 100, 11, 570, 300),
+                new rectPortal(-10, 250, 5, 100, 9, 570, 300),
 
                 //center obstacles
                 new rectObs(70, 80, 20, 450),
@@ -359,17 +357,19 @@
                 new movingObs1(50, 560, 30, 1.9, 0, 350, 50), 
                 new movingRectObs(20, 265, 10, 80, 2.5, 0, 550, 300),
                 new movingRectObs(530, 100, 60, 10, 0, -3, 530, 500),
+                new movingRectObs(415, 120, 60, 10, 0, -2, 415, 500),
 
                 new movingObs1(305, 75, 15, 1, 0.5, 365, 260),
                 new movingObs1(20, 130, 15, 2, 1, 120, 470),
                 //interactables
-                new sizeShift(335, 50, 15, 15, 2),
+                new sizeShift(445, 120, 15, 15, 2),
                 new Portal(185, 220, 20, 10, 185, 400),
                 new Portal(185, 380, 20, 10, 185, 200),
                 
                 new rectLand(95, 80, 40, 40),
                 new rectLand(420, 520, 50, 50),
-                new rectLand(420, 280, 50, 50)
+                new rectLand(420, 280, 50, 50),
+                new rectLand(420, 30, 50, 50)
             ]
 
             scene11 = new Scene(300, 300, []);
@@ -420,8 +420,6 @@
             }
             
             // trying to create that angular acceleration feeling
-            // right now, my angular acc might technically be rotating constantly between small values around 0 by the way I'm doing it
-
             acc(){
                 this.angle = (this.dire).angleBetween(this.direTarget);
                 
@@ -892,6 +890,5 @@
     </script>
 </body>
 </html>
-
 
 
