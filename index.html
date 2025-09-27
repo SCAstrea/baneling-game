@@ -35,16 +35,17 @@
 <body>
     <h1>Baneling Escape</h1>
     <div id="gameInfo">
-        Current Scene: <span id="sceneDisplay">1</span> | Terrain: <span id="terrainDisplay">Ice</span>
+        Current Scene: <span id="sceneDisplay">1</span> | Terrain: <span id="terrainDisplay">Ice</span> | Death Count: <span id="deathCounter">0</span> 
     </div>
 
     <script>
         // chooses starting scene
-        let sceneCounter = 4;
+        let sceneCounter = 7;
 
         let portalBool = false;
         let collide = false;
         let terrainType = 1; // 1 ice, 2 land
+        let deathCounter = 0; 
         let lastClick;
         let bane;
         let scene1, scene2, scene3, scene4, scene5, scene6, scene7, scene8, scene9, scene10, scene11, scenes;
@@ -244,7 +245,7 @@
 
                 //level interactables
                 new sizeShift(250, 300, 60, 60, 3.75),
-                new sizeShift(500, 100, 15, 15, 2)
+                new sizeShift(550, 100, 15, 15, 2)
             ]
             
             scene8 = new Scene(300,300,[]);
@@ -264,7 +265,7 @@
                 new rectObs(470, 400, 10, 200),
                 new rectPortal(380, 410, 90, 10, 8, 420, 150),
                 new rectPortal(380, 400, 90, 10, 8, 420, 230),
-                //new sizeShift(425, 500, 15, 15, 2),
+                //new sizeShift(425, 500, 15, 15, 2),20
 
                 //bottom right
                 new rectObs(370, 0, 10, 200),
@@ -280,7 +281,7 @@
                 //left
                 new rectObs(100, 200, 10, 200),
                 new rectObs(100, 0, 10, 100),
-                new rectObs(100, 500, 10, 100),
+                // new rectObs(100, 550, 10, 50),
                 new movingRectObs(0, 0, 100, 10, 0, 4, 0, 600),
 
                 //center
@@ -580,6 +581,7 @@
                 if (this.check(bane)) {
                     collide = true; 
                     bane.direTarget = bane.dire;
+                    deathCounter++;
                 }
             }
 
@@ -636,6 +638,7 @@
                 if (this.check(bane)) {
                     collide = true; 
                     bane.direTarget = bane.dire;
+                    deathCounter++;
                 }
             }
         }
@@ -762,6 +765,7 @@
                 if (this.check(bane)) {
                     collide = true; 
                     bane.direTarget = bane.dire;
+                    deathCounter++;
                 }
             }
 
@@ -870,6 +874,7 @@
         }
 
         function updateUI() {
+            document.getElementById('deathCounter').textContent = deathCounter;
             document.getElementById('sceneDisplay').textContent = sceneCounter;
             document.getElementById('terrainDisplay').textContent = terrainType === 1 ? 'Ice' : 'Land';
         }
@@ -890,6 +895,5 @@
     </script>
 </body>
 </html>
-
 
 
